@@ -48,8 +48,7 @@ static void _ConfigureLeds( void )
  *  \return Unused (ANSI-C compatibility).
  */
 extern int main( void )
-{
-  static uint32_t I2CStatus=0;
+{                             
 	/* Disable watchdog */
 	WDT_Disable( WDT ) ;
 
@@ -63,11 +62,6 @@ extern int main( void )
     SCB_EnableDCache();
     /* Enable Floating Point Unit */
     vfnFpu_enable();
-	
-  Twihs *p_twihs;
-  const twihs_options_t *p_opt;
-  I2CStatus = twihs_master_init(p_twihs, p_opt);
-              
   
 	printf( "Configure LED PIOs.\n\r" ) ;
 	_ConfigureLeds() ;

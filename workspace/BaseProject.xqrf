@@ -71,115 +71,119 @@
       <__></__>
      </Env.1>
      <IncludePath.0>
-      <Path>$(IRFDIR)..\source\bsw\mcal\twihs</Path>
-      <SubDir>0</SubDir>
+      <Path>$(IRFDIR)..\source\bsw\services\system\clock</Path>
+      <SubDir>1</SubDir>
      </IncludePath.0>
      <IncludePath.1>
-      <Path>$(IRFDIR)..\source</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\twihs</Path>
       <SubDir>0</SubDir>
      </IncludePath.1>
      <IncludePath.10>
-      <Path>$(IRFDIR)..\source\bsw\services\system\trace</Path>
+      <Path>$(IRFDIR)..\source\bsw\services\system\trng</Path>
       <SubDir>0</SubDir>
      </IncludePath.10>
      <IncludePath.11>
-      <Path>$(IRFDIR)..\source\bsw\services\system\timetick</Path>
+      <Path>$(IRFDIR)..\source\bsw\services\system\trace</Path>
       <SubDir>0</SubDir>
      </IncludePath.11>
      <IncludePath.12>
-      <Path>$(IRFDIR)..\source\bsw\mcal\wdt</Path>
+      <Path>$(IRFDIR)..\source\bsw\services\system\timetick</Path>
       <SubDir>0</SubDir>
      </IncludePath.12>
      <IncludePath.13>
-      <Path>$(IRFDIR)..\source\bsw\mcal\pmc</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\wdt</Path>
       <SubDir>0</SubDir>
      </IncludePath.13>
      <IncludePath.14>
-      <Path>$(IRFDIR)..\source\bsw\mcal\usart</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\pmc</Path>
       <SubDir>0</SubDir>
      </IncludePath.14>
      <IncludePath.15>
-      <Path>$(IRFDIR)..\source\bsw\mcal\uart</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\usart</Path>
       <SubDir>0</SubDir>
      </IncludePath.15>
      <IncludePath.16>
-      <Path>$(IRFDIR)..\source\bsw\mcal\supc</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\uart</Path>
       <SubDir>0</SubDir>
      </IncludePath.16>
      <IncludePath.17>
-      <Path>$(IRFDIR)..\source\bsw\mcal\pio</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\supc</Path>
       <SubDir>0</SubDir>
      </IncludePath.17>
      <IncludePath.18>
-      <Path>$(IRFDIR)..\source\bsw\mcal\mpu</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\pio</Path>
       <SubDir>0</SubDir>
      </IncludePath.18>
      <IncludePath.19>
-      <Path>$(IRFDIR)..\source\bsw\mcal\mcan</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\mpu</Path>
       <SubDir>0</SubDir>
      </IncludePath.19>
      <IncludePath.2>
-      <Path>$(IRFDIR)..\source\appl\Sensor</Path>
+      <Path>$(IRFDIR)..\source</Path>
       <SubDir>0</SubDir>
      </IncludePath.2>
      <IncludePath.20>
-      <Path>$(IRFDIR)..\source\bsw\mcal\exceptions</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\mcan</Path>
       <SubDir>0</SubDir>
      </IncludePath.20>
      <IncludePath.21>
-      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\include\samv7\</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\exceptions</Path>
       <SubDir>0</SubDir>
      </IncludePath.21>
      <IncludePath.22>
-      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\include\samv7\</Path>
       <SubDir>0</SubDir>
      </IncludePath.22>
      <IncludePath.23>
-      <Path>$(IRFDIR)..\source\infrastructure\derivative\utils\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\</Path>
       <SubDir>0</SubDir>
      </IncludePath.23>
      <IncludePath.24>
-      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\derivative\utils\</Path>
       <SubDir>0</SubDir>
      </IncludePath.24>
      <IncludePath.25>
-      <Path>$(IRFDIR)..\source\infrastructure\bsp\libboard_samv7-ek\include\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\derivative\libchip_samv7\</Path>
       <SubDir>0</SubDir>
      </IncludePath.25>
      <IncludePath.26>
-      <Path>$(IRFDIR)..\source\infrastructure\bsp\libboard_samv7-ek\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\bsp\libboard_samv7-ek\include\</Path>
       <SubDir>0</SubDir>
      </IncludePath.26>
      <IncludePath.27>
-      <Path>$(IRFDIR)..\source\appl\</Path>
+      <Path>$(IRFDIR)..\source\infrastructure\bsp\libboard_samv7-ek\</Path>
       <SubDir>0</SubDir>
      </IncludePath.27>
+     <IncludePath.28>
+      <Path>$(IRFDIR)..\source\appl\</Path>
+      <SubDir>0</SubDir>
+     </IncludePath.28>
      <IncludePath.3>
-      <Path>$(IRFDIR)..\source\bsw\mcal\fpu</Path>
-      <SubDir>1</SubDir>
+      <Path>$(IRFDIR)..\source\appl\Sensor</Path>
+      <SubDir>0</SubDir>
      </IncludePath.3>
      <IncludePath.4>
-      <Path>$(IRFDIR)..\source\bsw\services\system\scheduler</Path>
-      <SubDir>0</SubDir>
+      <Path>$(IRFDIR)..\source\bsw\mcal\fpu</Path>
+      <SubDir>1</SubDir>
      </IncludePath.4>
      <IncludePath.5>
-      <Path>$(IRFDIR)..\source\bsw\mcal\tc</Path>
+      <Path>$(IRFDIR)..\source\bsw\services\system\scheduler</Path>
       <SubDir>0</SubDir>
      </IncludePath.5>
      <IncludePath.6>
-      <Path>$(IRFDIR)..\source\bsw\mcal\xdma</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\tc</Path>
       <SubDir>0</SubDir>
      </IncludePath.6>
      <IncludePath.7>
-      <Path>$(IRFDIR)..\source\bsw\services</Path>
+      <Path>$(IRFDIR)..\source\bsw\mcal\xdma</Path>
       <SubDir>0</SubDir>
      </IncludePath.7>
      <IncludePath.8>
-      <Path>$(IRFDIR)..\source\bsw\ecual</Path>
+      <Path>$(IRFDIR)..\source\bsw\services</Path>
       <SubDir>0</SubDir>
      </IncludePath.8>
      <IncludePath.9>
-      <Path>$(IRFDIR)..\source\bsw\services\system\trng</Path>
+      <Path>$(IRFDIR)..\source\bsw\ecual</Path>
       <SubDir>0</SubDir>
      </IncludePath.9>
      <mbBuild>
@@ -241,6 +245,9 @@
          <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs</CompilerOptions>
         </FileOptios>
        </File.2>
+       <File.3>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\module_config\conf_clock.h</FileName>
+       </File.3>
       </LinkGroup.0>
       <LinkGroup.1>
        <LinkGroupName>mcal</LinkGroupName>
@@ -383,6 +390,25 @@
          <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs</CompilerOptions>
         </FileOptios>
        </File.4>
+       <File.5>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\genclk.h</FileName>
+       </File.5>
+       <File.6>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\osc.h</FileName>
+       </File.6>
+       <File.7>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\pll.h</FileName>
+       </File.7>
+       <File.8>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\sysclk.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs</CompilerOptions>
+        </FileOptios>
+       </File.8>
+       <File.9>
+        <FileName>$(IRFDIR)..\source\bsw\services\system\clock\sysclk.h</FileName>
+       </File.9>
       </LinkGroup.2>
       <LinkGroup.3>
        <LinkGroupName>ecual</LinkGroupName>

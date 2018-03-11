@@ -75,8 +75,15 @@ void Process_Sensing_Env (void)
 	switch (SensingState)
 	{
 		case SM_SENSENV_INIT:
-
-			SensingState = SM_SENSENV_OBTAINING_TEMP;
+			if(SHT_Inited==SHT_Init())
+      {
+        SensingState = SM_SENSENV_OBTAINING_TEMP;
+      }
+      else
+      {
+        /*Nothing to do*/
+      }
+      
 		break;
 		case SM_SENSENV_OBTAINING_TEMP:
 			if(E_OK == get_Temp())
