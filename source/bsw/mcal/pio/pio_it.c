@@ -125,7 +125,7 @@ extern void PioInterruptHandler( uint32_t id, Pio *pPio )
  * \brief Parallel IO Controller A interrupt handler
  * \Redefined PIOA interrupt handler for NVIC interrupt table.
  */
-extern void PIOA_Handler( void )
+extern void PIOA_Handler_0( void )
 {
 	PioInterruptHandler( ID_PIOA, PIOA ) ;
 }

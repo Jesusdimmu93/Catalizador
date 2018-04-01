@@ -39,7 +39,15 @@
 #define SHT_CMD_STS_WRITE		(0x06u)
 #define SHT_CMD_STS_READ		(0x07u)
 #define SHT_SFT_RST 			(0x1Eu)	
-
+ 
+#define noACK 0 
+#define ACK   1 
+                            //adr  command  r/w 
+#define STATUS_REG_W 0x06   //000   0011    0 
+#define STATUS_REG_R 0x07   //000   0011    1 
+#define MEASURE_TEMP 0x03   //000   0001    1 
+#define MEASURE_HUMI 0x05   //000   0010    1 
+#define RESET        0x1e   //000   1111    
 /********************************************************************************
 *                               Type Definitions
 ********************************************************************************/

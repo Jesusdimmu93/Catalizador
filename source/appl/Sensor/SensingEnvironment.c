@@ -88,7 +88,7 @@ void Process_Sensing_Env (void)
 		case SM_SENSENV_OBTAINING_TEMP:
 			if(E_OK == get_Temp())
 			{
-				SensingState = SM_SENSENV_OBTAINING_RH;
+				SensingState = SM_SENSENV_OBTAINING_TEMP;//SM_SENSENV_OBTAINING_RH;
 			}
 		break;
 		case SM_SENSENV_OBTAINING_RH:
@@ -102,12 +102,20 @@ void Process_Sensing_Env (void)
 			{
 				SensingState = SM_SENSENV_SPREAD_RESULT;
 			}
+      else
+      {
+        SensingState = SM_SENSENV_OBTAINING_TEMP;
+      }
 		break;
 		case SM_SENSENV_SPREAD_RESULT:
 			if(E_OK == Send_Results())
 			{
-				SensingState = SM_SENSENV_INIT;
+				SensingState = SM_SENSENV_OBTAINING_TEMP;
 			}
+      else
+      {
+        SensingState = SM_SENSENV_INIT;
+      }  
 		break;
 		default:
 			SensingState = SM_SENSENV_INIT;

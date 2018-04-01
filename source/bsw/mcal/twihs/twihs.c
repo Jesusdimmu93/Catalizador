@@ -125,7 +125,7 @@ uint32_t twihs_master_init(Twihs *p_twihs, const twihs_options_t *p_opt)
 	uint32_t status = TWIHS_SUCCESS;
 
 	/* Disable TWIHS interrupts */
-	p_twihs->TWIHS_IDR = ~0UL;
+	//p_twihs->TWIHS_IDR = ~0UL;
 
 	/* Dummy read in status register */
 	p_twihs->TWIHS_SR;
@@ -308,7 +308,7 @@ uint32_t twihs_master_read(Twihs *p_twihs, twihs_packet_t *p_packet)
 		}
 		if (!timeout--) {
 			return TWIHS_ERROR_TIMEOUT;
-		}
+		} 
 		/* Last byte ? */
 		if (cnt == 1) {
 			p_twihs->TWIHS_CR = TWIHS_CR_STOP;
@@ -375,7 +375,7 @@ uint32_t twihs_master_write(Twihs *p_twihs, twihs_packet_t *p_packet)
 
 		cnt--;
 	}
-
+   
 	while (1) {
 		status = p_twihs->TWIHS_SR;
 		if (status & TWIHS_SR_NACK) {
@@ -384,8 +384,8 @@ uint32_t twihs_master_write(Twihs *p_twihs, twihs_packet_t *p_packet)
 
 		if (status & TWIHS_SR_TXRDY) {
 			break;
-		}
-	}
+		} 
+	}     
 
 	p_twihs->TWIHS_CR = TWIHS_CR_STOP;
 

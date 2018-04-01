@@ -190,7 +190,6 @@ typedef struct _Pin
 /*
  *         Global Functions
  */
-
 extern uint8_t PIO_Configure( const Pin *list, uint32_t size ) ;
 
 extern void PIO_Set( const Pin *pin ) ;

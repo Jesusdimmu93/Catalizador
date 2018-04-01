@@ -39,6 +39,11 @@ static void _ConfigureLeds( void )
 	LED_Configure( 1 ) ;
 }
 
+static void _ConfigureComPins( void )
+{
+	ComPins_Configure( 0 ) ;
+	ComPins_Configure( 1 ) ;
+}
 /*----------------------------------------------------------------------------
  *        Exported functions
  *----------------------------------------------------------------------------*/
@@ -58,20 +63,23 @@ extern int main( void )
 	printf( "-- Compiled: %s %s With %s--\n\r", __DATE__, __TIME__ , COMPILER_NAME);
 
 	/* Enable I and D cache */
-	SCB_EnableICache();
-    SCB_EnableDCache();
+	//SCB_EnableICache();
+  //SCB_EnableDCache();
     /* Enable Floating Point Unit */
-    vfnFpu_enable();
+  vfnFpu_enable();
   
 	printf( "Configure LED PIOs.\n\r" ) ;
 	_ConfigureLeds() ;
-  	
-  	vfnTsk_Init();
+  _ConfigureComPins() ;
+	
+  vfnTsk_Init();
+  SensEnv_Init();
+  
   	/* Initialize Task Scheduler */
 	vfnScheduler_Init(&Tasks[0]);
 	/* Start execution of task scheduler */
 	vfnScheduler_Start();
-
+  //Process_Sensing_Env();
 	/*-- Loop through all the periodic tasks from Task Scheduler --*/
 	for(;;)
 	{

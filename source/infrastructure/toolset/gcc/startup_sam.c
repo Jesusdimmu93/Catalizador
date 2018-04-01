@@ -332,7 +332,7 @@ __STATIC_INLINE void TCM_Disable(void)
  * To initialize the device, and call the main() routine.
  */
 void Reset_Handler(void)
-{
+                                                                                                                                                                                                                                          {
 		uint32_t *pSrc, *pDest;
 
 		/* Initialize the relocate segment */
@@ -398,3 +398,4 @@ void Dummy_Handler(void)
 }
 
 
+       
