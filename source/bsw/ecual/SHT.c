@@ -21,7 +21,7 @@
 #include "pmc.h"
 #include "sysclk.h"
 
-//#define InterruptMode
+#define InterruptMode
  /*******************************************************************************
  *                               Macro Definitions
  ********************************************************************************/
@@ -376,14 +376,21 @@ void SendCommand(int Command){
 uint16_t ReadTemperature()
 { 
   uint8_t AcknowPINge; 
-  uint16_t Lx=0u,Value; 
+  uint16_t Lx=0u,Value,DummyCounter; 
   TransmitStart(); 
   SendCommand(MeasureTemp); 
-  while(0u==AckConfirmVar);/*wait for acknolwledge*/ 
-  AckConfirmVar=0u;
-  s_delay_2_us();
-  PIN_MakeInputSDA();
-  InterruptVar=1u;
+  DummyCounter=0x0000;
+  while(0u==AckConfirmVar||DummyCounter<0xffff)
+  {
+    DummyCounter++;
+  }/*wait for acknolwledge*/ 
+  if(DummyCounter!=0xffff)
+  {
+    AckConfirmVar=0u;
+    s_delay_2_us();
+    PIN_MakeInputSDA();
+    InterruptVar=1u;
+  }
   
   //Value=CalcTempValues(Lx); 
   return(Value);  
@@ -391,7 +398,7 @@ uint16_t ReadTemperature()
 
 uint16_t ReadHumidity()
 { 
-  uint16_t Lx=0u,Value;  
+  uint16_t Lx=0u,Value,DummyCounter;  
   TransmitStart(); 
   SendCommand(MeasureHumi); 
  
@@ -399,10 +406,18 @@ uint16_t ReadHumidity()
   AckConfirmVar=0u;
   s_delay_2_us();
   PIN_MakeInputSDA();
-  
-  while(0u==AckConfirmVar);       /*wait for acknolwledge*/ 
-  AckConfirmVar=0u;
-  //Value=CalcTempValues(Lx); 
+  DummyCounter=0;
+  while(0u==AckConfirmVar||DummyCounter<0xffff)
+  {
+    DummyCounter++;
+  }/*wait for acknolwledge*/ 
+  if(DummyCounter!=0xffff)
+  {
+    AckConfirmVar=0u;
+    s_delay_2_us();
+    PIN_MakeInputSDA();
+    InterruptVar=1u;
+  }
   return(Value); 
 }
 
