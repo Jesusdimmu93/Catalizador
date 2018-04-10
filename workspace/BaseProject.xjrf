@@ -16,28 +16,28 @@
        <Combo>
         <ID.0>
          <Data.0>
-          <__>while</__>
+          <__>SO_T</__>
          </Data.0>
          <Data.1>
-          <__>lx</__>
+          <__>SHT_Re</__>
          </Data.1>
          <Data.2>
-          <__>LX</__>
+          <__>while</__>
          </Data.2>
          <Data.3>
-          <__>SendCommand</__>
+          <__>lx</__>
          </Data.3>
          <Data.4>
-          <__>ReadTemperature</__>
+          <__>LX</__>
          </Data.4>
          <Data.5>
-          <__>InterruptVar</__>
+          <__>SendCommand</__>
          </Data.5>
          <Data.6>
-          <__>RequestEnabled</__>
+          <__>ReadTemperature</__>
          </Data.6>
          <Data.7>
-          <__>MeasureTemp</__>
+          <__>InterruptVar</__>
          </Data.7>
         </ID.0>
         <ID.1>
@@ -330,7 +330,7 @@
       </PI.48>
       <PI.49>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <L>41</L>
+       <L>25</L>
        <P>..\source\bsw\ecual\SHT_Types.h</P>
        <VL>20</VL>
       </PI.49>
@@ -831,7 +831,7 @@
      <Documents.0>
       <ActiveDocument>
        <Maximized>True</Maximized>
-       <RelativeFileName>..\source\bsw\services\system\scheduler\app_scheduler.c</RelativeFileName>
+       <RelativeFileName>..\source\bsw\ecual\SHT.c</RelativeFileName>
       </ActiveDocument>
       <Editor.0>
        <FileBarIndex>1</FileBarIndex>
@@ -850,7 +850,7 @@
        <RelativeFileName>..\.tags_sorted_by_file</RelativeFileName>
       </Editor.1>
       <Editor.10>
-       <FileBarIndex>18</FileBarIndex>
+       <FileBarIndex>14</FileBarIndex>
        <RectPosBottom>341</RectPosBottom>
        <RectPosLeft>64</RectPosLeft>
        <RectPosRight>773</RectPosRight>
@@ -858,7 +858,7 @@
        <RelativeFileName>..\source\bsw\mcal\mcan\mcan.c</RelativeFileName>
       </Editor.10>
       <Editor.11>
-       <FileBarIndex>19</FileBarIndex>
+       <FileBarIndex>15</FileBarIndex>
        <RectPosBottom>330</RectPosBottom>
        <RectPosLeft>64</RectPosLeft>
        <RectPosRight>546</RectPosRight>
@@ -890,7 +890,7 @@
        <RelativeFileName>..\source\bsw\mcal\pio\pio_capture.c</RelativeFileName>
       </Editor.14>
       <Editor.15>
-       <FileBarIndex>25</FileBarIndex>
+       <FileBarIndex>23</FileBarIndex>
        <RectPosBottom>365</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>501</RectPosRight>
@@ -898,7 +898,7 @@
        <RelativeFileName>..\source\bsw\mcal\pio\pio_it.c</RelativeFileName>
       </Editor.15>
       <Editor.16>
-       <FileBarIndex>26</FileBarIndex>
+       <FileBarIndex>24</FileBarIndex>
        <RectPosBottom>576</RectPosBottom>
        <RectPosLeft>96</RectPosLeft>
        <RectPosRight>709</RectPosRight>
@@ -906,7 +906,7 @@
        <RelativeFileName>..\source\bsw\mcal\pio\pio_it.h</RelativeFileName>
       </Editor.16>
       <Editor.17>
-       <FileBarIndex>27</FileBarIndex>
+       <FileBarIndex>25</FileBarIndex>
        <RectPosBottom>704</RectPosBottom>
        <RectPosLeft>224</RectPosLeft>
        <RectPosRight>974</RectPosRight>
@@ -914,7 +914,7 @@
        <RelativeFileName>..\source\bsw\mcal\pmc\pmc.c</RelativeFileName>
       </Editor.17>
       <Editor.18>
-       <FileBarIndex>28</FileBarIndex>
+       <FileBarIndex>26</FileBarIndex>
        <RectPosBottom>552</RectPosBottom>
        <RectPosLeft>128</RectPosLeft>
        <RectPosRight>965</RectPosRight>
@@ -922,7 +922,7 @@
        <RelativeFileName>..\source\bsw\mcal\pmc\pmc.h</RelativeFileName>
       </Editor.18>
       <Editor.19>
-       <FileBarIndex>29</FileBarIndex>
+       <FileBarIndex>27</FileBarIndex>
        <RectPosBottom>584</RectPosBottom>
        <RectPosLeft>160</RectPosLeft>
        <RectPosRight>997</RectPosRight>
@@ -938,7 +938,7 @@
        <RelativeFileName>..\source\appl\main.c</RelativeFileName>
       </Editor.2>
       <Editor.20>
-       <FileBarIndex>31</FileBarIndex>
+       <FileBarIndex>29</FileBarIndex>
        <RectPosBottom>586</RectPosBottom>
        <RectPosLeft>64</RectPosLeft>
        <RectPosRight>445</RectPosRight>
@@ -946,7 +946,7 @@
        <RelativeFileName>..\source\bsw\mcal\twihs\twihs.c</RelativeFileName>
       </Editor.20>
       <Editor.21>
-       <FileBarIndex>32</FileBarIndex>
+       <FileBarIndex>31</FileBarIndex>
        <RectPosBottom>627</RectPosBottom>
        <RectPosLeft>96</RectPosLeft>
        <RectPosRight>1137</RectPosRight>
@@ -986,7 +986,7 @@
        <RelativeFileName>..\source\bsw\services\ioport\ioport.h</RelativeFileName>
       </Editor.25>
       <Editor.26>
-       <FileBarIndex>10</FileBarIndex>
+       <FileBarIndex>13</FileBarIndex>
        <RectPosBottom>309</RectPosBottom>
        <RectPosLeft>32</RectPosLeft>
        <RectPosRight>876</RectPosRight>
@@ -994,7 +994,7 @@
        <RelativeFileName>..\source\bsw\services\ioport\sam\ioport_gpio.h</RelativeFileName>
       </Editor.26>
       <Editor.27>
-       <FileBarIndex>13</FileBarIndex>
+       <FileBarIndex>18</FileBarIndex>
        <RectPosBottom>395</RectPosBottom>
        <RectPosLeft>32</RectPosLeft>
        <RectPosRight>1012</RectPosRight>
@@ -1034,7 +1034,7 @@
        <RelativeFileName>..\source\bsw\services\system\clock\pll.h</RelativeFileName>
       </Editor.30>
       <Editor.31>
-       <FileBarIndex>41</FileBarIndex>
+       <FileBarIndex>40</FileBarIndex>
        <RectPosBottom>371</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>798</RectPosRight>
@@ -1042,7 +1042,7 @@
        <RelativeFileName>..\source\bsw\services\system\clock\sysclk.c</RelativeFileName>
       </Editor.31>
       <Editor.32>
-       <FileBarIndex>42</FileBarIndex>
+       <FileBarIndex>41</FileBarIndex>
        <RectPosBottom>365</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>442</RectPosRight>
@@ -1050,7 +1050,7 @@
        <RelativeFileName>..\source\bsw\services\system\clock\sysclk.h</RelativeFileName>
       </Editor.32>
       <Editor.33>
-       <FileBarIndex>43</FileBarIndex>
+       <FileBarIndex>42</FileBarIndex>
        <RectPosBottom>480</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>984</RectPosRight>
@@ -1058,7 +1058,7 @@
        <RelativeFileName>..\source\bsw\services\system\scheduler\app_scheduler.c</RelativeFileName>
       </Editor.33>
       <Editor.34>
-       <FileBarIndex>44</FileBarIndex>
+       <FileBarIndex>43</FileBarIndex>
        <RectPosBottom>512</RectPosBottom>
        <RectPosLeft>32</RectPosLeft>
        <RectPosRight>1016</RectPosRight>
@@ -1066,7 +1066,7 @@
        <RelativeFileName>..\source\bsw\services\system\scheduler\Tasks.c</RelativeFileName>
       </Editor.34>
       <Editor.35>
-       <FileBarIndex>45</FileBarIndex>
+       <FileBarIndex>44</FileBarIndex>
        <RectPosBottom>424</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>837</RectPosRight>
@@ -1074,7 +1074,7 @@
        <RelativeFileName>..\source\bsw\services\system\timetick\timetick.c</RelativeFileName>
       </Editor.35>
       <Editor.36>
-       <FileBarIndex>24</FileBarIndex>
+       <FileBarIndex>32</FileBarIndex>
        <RectPosBottom>552</RectPosBottom>
        <RectPosLeft>128</RectPosLeft>
        <RectPosRight>568</RectPosRight>
@@ -1082,7 +1082,7 @@
        <RelativeFileName>..\source\bsw\services\system\trace\trace.h</RelativeFileName>
       </Editor.36>
       <Editor.37>
-       <FileBarIndex>46</FileBarIndex>
+       <FileBarIndex>45</FileBarIndex>
        <RectPosBottom>552</RectPosBottom>
        <RectPosLeft>128</RectPosLeft>
        <RectPosRight>1088</RectPosRight>
@@ -1090,7 +1090,7 @@
        <RelativeFileName>..\source\infrastructure\bsp\libboard_samv7-ek\board.h</RelativeFileName>
       </Editor.37>
       <Editor.38>
-       <FileBarIndex>47</FileBarIndex>
+       <FileBarIndex>46</FileBarIndex>
        <RectPosBottom>365</RectPosBottom>
        <RectPosLeft>0</RectPosLeft>
        <RectPosRight>298</RectPosRight>
@@ -1098,7 +1098,7 @@
        <RelativeFileName>..\source\infrastructure\bsp\libboard_samv7-ek\include\board_lowlevel.h</RelativeFileName>
       </Editor.38>
       <Editor.39>
-       <FileBarIndex>40</FileBarIndex>
+       <FileBarIndex>47</FileBarIndex>
        <RectPosBottom>616</RectPosBottom>
        <RectPosLeft>192</RectPosLeft>
        <RectPosRight>1029</RectPosRight>
@@ -1154,7 +1154,7 @@
        <RelativeFileName>..\source\infrastructure\bsp\libboard_samv7-ek\source\syscalls.c</RelativeFileName>
       </Editor.44>
       <Editor.45>
-       <FileBarIndex>23</FileBarIndex>
+       <FileBarIndex>28</FileBarIndex>
        <RectPosBottom>456</RectPosBottom>
        <RectPosLeft>32</RectPosLeft>
        <RectPosRight>849</RectPosRight>
@@ -1162,7 +1162,7 @@
        <RelativeFileName>..\source\infrastructure\bsp\libboard_samv7-ek\source\wm8904.c</RelativeFileName>
       </Editor.45>
       <Editor.46>
-       <FileBarIndex>14</FileBarIndex>
+       <FileBarIndex>17</FileBarIndex>
        <RectPosBottom>488</RectPosBottom>
        <RectPosLeft>64</RectPosLeft>
        <RectPosRight>504</RectPosRight>
@@ -1170,7 +1170,7 @@
        <RelativeFileName>..\source\infrastructure\derivative\libchip_samv7\chip.h</RelativeFileName>
       </Editor.46>
       <Editor.47>
-       <FileBarIndex>54</FileBarIndex>
+       <FileBarIndex>52</FileBarIndex>
        <RectPosBottom>632</RectPosBottom>
        <RectPosLeft>160</RectPosLeft>
        <RectPosRight>514</RectPosRight>
@@ -1178,7 +1178,7 @@
        <RelativeFileName>..\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\core_cm7.h</RelativeFileName>
       </Editor.47>
       <Editor.48>
-       <FileBarIndex>52</FileBarIndex>
+       <FileBarIndex>53</FileBarIndex>
        <RectPosBottom>664</RectPosBottom>
        <RectPosLeft>192</RectPosLeft>
        <RectPosRight>546</RectPosRight>
@@ -1202,7 +1202,7 @@
        <RelativeFileName>..\source\bsw\ecual\led.c</RelativeFileName>
       </Editor.5>
       <Editor.50>
-       <FileBarIndex>17</FileBarIndex>
+       <FileBarIndex>19</FileBarIndex>
        <RectPosBottom>520</RectPosBottom>
        <RectPosLeft>96</RectPosLeft>
        <RectPosRight>933</RectPosRight>
@@ -1218,7 +1218,7 @@
        <RelativeFileName>..\source\infrastructure\derivative\libchip_samv7\include\samv7\pio\pio_samv71q21.h</RelativeFileName>
       </Editor.51>
       <Editor.52>
-       <FileBarIndex>55</FileBarIndex>
+       <FileBarIndex>54</FileBarIndex>
        <RectPosBottom>499</RectPosBottom>
        <RectPosLeft>128</RectPosLeft>
        <RectPosRight>1351</RectPosRight>
@@ -1226,7 +1226,7 @@
        <RelativeFileName>..\source\infrastructure\derivative\libchip_samv7\include\samv7\samv71.h</RelativeFileName>
       </Editor.52>
       <Editor.53>
-       <FileBarIndex>53</FileBarIndex>
+       <FileBarIndex>55</FileBarIndex>
        <RectPosBottom>531</RectPosBottom>
        <RectPosLeft>160</RectPosLeft>
        <RectPosRight>1383</RectPosRight>
@@ -1274,7 +1274,7 @@
        <RelativeFileName>..\source\bsw\ecual\SHT.c</RelativeFileName>
       </Editor.6>
       <Editor.7>
-       <FileBarIndex>11</FileBarIndex>
+       <FileBarIndex>10</FileBarIndex>
        <RectPosBottom>525</RectPosBottom>
        <RectPosLeft>160</RectPosLeft>
        <RectPosRight>787</RectPosRight>
@@ -1282,7 +1282,7 @@
        <RelativeFileName>..\source\bsw\ecual\SHT.h</RelativeFileName>
       </Editor.7>
       <Editor.8>
-       <FileBarIndex>12</FileBarIndex>
+       <FileBarIndex>11</FileBarIndex>
        <RectPosBottom>362</RectPosBottom>
        <RectPosLeft>96</RectPosLeft>
        <RectPosRight>578</RectPosRight>
@@ -1290,7 +1290,7 @@
        <RelativeFileName>..\source\bsw\ecual\SHT_Types.h</RelativeFileName>
       </Editor.8>
       <Editor.9>
-       <FileBarIndex>15</FileBarIndex>
+       <FileBarIndex>12</FileBarIndex>
        <RectPosBottom>600</RectPosBottom>
        <RectPosLeft>128</RectPosLeft>
        <RectPosRight>482</RectPosRight>
@@ -1311,10 +1311,10 @@
       </EditorHistoryFile.3>
      </Documents.0>
      <Progress>
-      <b>601</b>
-      <l>375</l>
-      <r>1043</r>
-      <t>154</t>
+      <b>744</b>
+      <l>626</l>
+      <r>1294</r>
+      <t>297</t>
      </Progress>
      <Watches>
       <ActiveWatchPane>0</ActiveWatchPane>
@@ -1784,7 +1784,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\source\bsw\ecual\SHT.c&quot;::354</Name>
+         <Name>&quot;..\source\bsw\ecual\SHT.c&quot;::359</Name>
         </__>
        </BP.0>
        <BP.1>
@@ -1836,7 +1836,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\source\bsw\ecual\SHT.c&quot;::330</Name>
+         <Name>&quot;..\source\bsw\ecual\SHT.c&quot;::335</Name>
         </__>
        </BP.4>
       </Fetch>
@@ -2133,14 +2133,14 @@
      <GlobalData>
       <FindInFiles>
        <CaseSensitive>0</CaseSensitive>
-       <FindWhat.0>SHT_ObtainTemp</FindWhat.0>
-       <FindWhat.1>get_Temp</FindWhat.1>
-       <FindWhat.2>Process_Sensing_Env</FindWhat.2>
-       <FindWhat.3>RequestEnabled</FindWhat.3>
-       <FindWhat.4>MeasureTemp</FindWhat.4>
-       <FindWhat.5>#ifdef</FindWhat.5>
-       <FindWhat.6>PIO_IER</FindWhat.6>
-       <FindWhat.7>PMC_EnablePeripheral</FindWhat.7>
+       <FindWhat.0>SHT_Init</FindWhat.0>
+       <FindWhat.1>SHT_Inited</FindWhat.1>
+       <FindWhat.2>SHT_Init()</FindWhat.2>
+       <FindWhat.3>SensEnv_Init</FindWhat.3>
+       <FindWhat.4>SDA</FindWhat.4>
+       <FindWhat.5>SHT_ObtainTemp</FindWhat.5>
+       <FindWhat.6>get_Temp</FindWhat.6>
+       <FindWhat.7>Process_Sensing_Env</FindWhat.7>
        <Folder.0>..\</Folder.0>
        <Folder.1>D:\programiranje\STM32F4 - Copy\stm32f4x7_eth_lwip\STM32F4x7_ETH_LwIP_V1.0.0\</Folder.1>
        <Folder.2></Folder.2>

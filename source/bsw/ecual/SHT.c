@@ -15,9 +15,8 @@
 #include "Std_Types.h"
 #include "SHT_Types.h"
 #include "SHT.h"
-#include "twihs.h"      
 #include "board.h"
-#include "usart.h"
+#include "math.h"
 #include "pmc.h"
 #include "sysclk.h"
 
@@ -196,27 +195,31 @@ void PIOA_Handler()
  *   None
  *
  *****************************************************************************/
-SHT_InitState SHT_Init (void)
-{                       
-  PMC_EnablePeripheral(ID_PIOA);
-  NVIC_DisableIRQ( PIOA_IRQn ) ;
+void SHT_Init (void)
+{
+	/*Initializing Variables*/
+	SHTData.RH = 0.0;
+	SHTData.Temp = 0.0;
+	SHTData.DwPoint = 0.0;
+  	PMC_EnablePeripheral(ID_PIOA);
+  	NVIC_DisableIRQ( PIOA_IRQn ) ;
 	NVIC_ClearPendingIRQ( PIOA_IRQn ) ;
 	NVIC_SetPriority( PIOA_IRQn, 1 ) ;
-  NVIC_EnableIRQ( PIOA_IRQn ) ;  
-  return 0;
+  	NVIC_EnableIRQ( PIOA_IRQn ) ;  
 }
 
 Std_ReturnType SHT_ObtainTemp (void)
 {
-	uint16_t Temp_SO_T;
+	uint16_t SO_T;
 	Std_ReturnType status = E_NOT_OK;
-	if(SHT_TASK_OK == SHT_GetTemperatureRaw(&Temp_SO_T))
+	if(SHT_TASK_OK == SHT_ReadTemperatureRaw(&SO_T))
 	{
 		/*Given the Temp raw value we can now calculate the real temperature *
 		* the temperature sensor is very linear by design, according to the  *
 		* datasheet the formula is T = d1 + (d2 * SOt), where d1 and d2 are  *
 		* coefficients and SOt the digital readout                          */
-		SHTData.Temp = (SHT_TEMP_D1 + (SHT_TEMP_D2 * Temp_SO_T));
+		SHTData.Temp = (SHT_SO_TEMP_D1 + (SHT_SO_TEMP_D2 * SO_T));
+
 		status = E_OK;
 	}
 	return status;
@@ -224,26 +227,46 @@ Std_ReturnType SHT_ObtainTemp (void)
 
 Std_ReturnType SHT_ObtainRH (void)
 {
-  uint16_t RH_SO_T;
+	uint16_t SO_RH;
 	Std_ReturnType status = E_NOT_OK;
-	if(SHT_TASK_OK == SHT_GetHumidityRaw(&RH_SO_T))
+	if(SHT_TASK_OK ==SHT_ReadHumidityRaw(&SO_RH))
 	{
-		/*Given the Temp raw value we can now calculate the real temperature *
-		* the temperature sensor is very linear by design, according to the  *
-		* datasheet the formula is T = d1 + (d2 * SOt), where d1 and d2 are  *
-		* coefficients and SOt the digital readout                          */
-		SHTData.RH = 0u;//(SHT_RH_D1 + (SHT_RH_D2 * RH_SO_T));
+		float RH_Linear;
+		/*Given the RH raw value and having calculated the real temperature  *
+		* we can now calculate the real relative humidity. For compensating  *
+		* non-linearity of the humidity sensor it is recommended to convert  *
+		* the humidity readout (SOrh) wiht the following formula with        *
+		* coefficients given by the datasheet:                               *
+		*          RH_Linear = c1 + (c2 * SOrh) + (c3 * (SOrh)^2)            *
+		* For temperatures significantly different from 25°C (~77°F)         *
+		* the humidity signal requires temperature compensation.             *
+		* The temperature correction corresponds roughly to                  *
+		* 0.12%RH/°C @ 50%RH. Coefficients for the temperature               *
+		* compensation are given by the datasheet:                           *
+		*          RH = (T[°C] -25) * (t1 + (t2 * SO_RH)) + RH_Linear       */
+
+		RH_Linear = (SHT_SO_HR_C1 + (SHT_SO_HR_C2 + SO_RH) + 
+		            (SHT_SO_HR_C3 * SO_RH * SO_RH));
+
+		SHTData.RH = ((SHTData.Temp - 25u) * (SHT_SO_HR_T1 + 
+		             (SHT_SO_HR_T2 * SO_RH)) + RH_Linear);
+
 		status = E_OK;
 	}
 	return status;
 }
-                        
+
 Std_ReturnType SHT_CalculateDP (void)
 {
   return 0;
 }
-  
-SHT_TaskStateType SHT_GetTemperatureRaw(uint16_t *pData)
+ 
+void GetData(SHTDataType *Data)
+{
+	Data = &SHTData;
+}
+
+SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
 {  
   
 	SHT_TaskStateType status = SHT_TASK_OK;
@@ -262,7 +285,7 @@ SHT_TaskStateType SHT_GetTemperatureRaw(uint16_t *pData)
   return  status;
 }
 
-SHT_TaskStateType SHT_GetHumidityRaw(uint16_t *pData)
+SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)
 {
 	SHT_TaskStateType status = SHT_TASK_OK;
   ReadHumidity();
@@ -460,36 +483,6 @@ uint16_t ReadHumidity(){
 // 
 ///////////////////////////////////////////////////////// 
 
-///////////////////////////////////////////////////////// 
-// 
-/*//////////////////////////////////////////////////////// 
-long CalcTempValues(long Lx){ 
- long value; 
- float Fx; 
-
-  Fx=0.01*(float)Lx; 
-  Fx=Fx-40; 
-  Value=Fx*10; 
-  return(value); 
-} 
-/*//////////////////////////////////////////////////////// 
-// 
-/*//////////////////////////////////////////////////////// 
-long CalcHumiValues(long Lx){ 
- long Value; 
- float Fx, Fy; 
-
-  Fx=(float)Lx*(float)Lx; 
-  Fx=Fx*(-0.0000028); 
-  Fy=(float)Lx*0.0405; 
-  Fx=Fx+Fy; 
-  Fx=Fx-4; 
-  Value=Fx*10; 
-  return(value); 
-} 
-/*///////////////
-   
-///////////////////////////////////////////////////////// 
 void RST_Connection(){ 
  int i; 
 

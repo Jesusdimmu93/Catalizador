@@ -208,13 +208,3 @@ void UsageFault_Handler( void )
 	__DMB();
 	__ASM volatile("BKPT #01");  
 }
-
-
-void TWIHS2_Handler( void )
-{
-	TRACE_DEBUG("\r\nUsage fault at address 0X%x", StackUnwind());
-
-	__ISB();
-	__DMB();
-	__ASM volatile("BKPT #01");  
-}

@@ -5,8 +5,7 @@
 #include "board.h"
 #include "app_scheduler.h"
 #include "Tasks.h"    
-#include "fpu.h"  
-#include "twihs.h"
+#include "fpu.h"   
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -66,8 +65,8 @@ extern int main( void )
 	//SCB_EnableICache();
   //SCB_EnableDCache();
     /* Enable Floating Point Unit */
-  vfnFpu_enable();
-  
+    vfnFpu_enable();
+	
 	printf( "Configure LED PIOs.\n\r" ) ;
 	_ConfigureLeds() ;
   _ConfigureComPins() ;
@@ -79,7 +78,7 @@ extern int main( void )
 	vfnScheduler_Init(&Tasks[0]);
 	/* Start execution of task scheduler */
 	vfnScheduler_Start();
-  //Process_Sensing_Env();
+
 	/*-- Loop through all the periodic tasks from Task Scheduler --*/
 	for(;;)
 	{

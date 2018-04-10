@@ -68,6 +68,7 @@ Std_ReturnType Send_Results (void);
 void SensEnv_Init (void)
 {
 	SensingState = SM_SENSENV_INIT;
+	SHT_Init();
 }
 
 void Process_Sensing_Env (void)
@@ -75,20 +76,13 @@ void Process_Sensing_Env (void)
 	switch (SensingState)
 	{
 		case SM_SENSENV_INIT:
-			if(SHT_Inited==SHT_Init())
-      {
-        SensingState = SM_SENSENV_OBTAINING_TEMP;
-      }
-      else
-      {
-        /*Nothing to do*/
-      }
-      
+
+			SensingState = SM_SENSENV_OBTAINING_TEMP;
 		break;
 		case SM_SENSENV_OBTAINING_TEMP:
 			if(E_OK == get_Temp())
 			{
-				SensingState = SM_SENSENV_OBTAINING_TEMP;//SM_SENSENV_OBTAINING_RH;
+				SensingState = SM_SENSENV_OBTAINING_RH;
 			}
 		break;
 		case SM_SENSENV_OBTAINING_RH:
@@ -102,10 +96,6 @@ void Process_Sensing_Env (void)
 			{
 				SensingState = SM_SENSENV_SPREAD_RESULT;
 			}
-      else
-      {
-        SensingState = SM_SENSENV_OBTAINING_TEMP;
-      }
 		break;
 		case SM_SENSENV_SPREAD_RESULT:
 			if(E_OK == Send_Results())
@@ -157,7 +147,23 @@ Std_ReturnType Calculate_DP (void)
 
 Std_ReturnType Send_Results (void)
 {
-	Std_ReturnType status = E_NOT_OK;
-	//Can_SetSignal(SensorData, );
+	Std_ReturnType status = E_OK;
+	SHTDataType SHTData;
+	uint8_t Data[3];
+	GetData(SHTData);
+	Data[0] = (uint8_t)SHTData.Temp;
+	Data[1] = (uint8_t)SHTData.RH;
+	Data[2] = (uint8_t)SHTData.DwPoint;
+
+	/*if(Can_SetSignal(CatalystDP, Data[2]) || Can_SetSignal(CatalystTemp, Data[0]) || Can_SetSignal(CatalystRH, Data[1]))
+	{
+		status = E_NOT_OK;
+	}
+
+	if(SD_Store(Data, sizeof(Data)))
+	{
+		status = E_NOT_OK;
+	}
+	*/
 	return E_OK;
 }

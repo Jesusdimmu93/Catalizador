@@ -19,13 +19,21 @@
 ********************************************************************************/
 /*Coefficients given by table 9 from datasheet.*/
 /*Temperature*/
-#define SHT_TEMP_D1      (-40.1f)		/*Using a Vdd = 5V*/
-#define SHT_TEMP_D2      (0.04f) 		/*Using the 12bit configuration*/
+#define SHT_SO_TEMP_D1      (-40.1f)		/*Using a Vdd = 5V*/
+#define SHT_SO_TEMP_D2      (0.04f) 		/*Using the 12bit configuration*/
 
 /*Relative Humidity*/
-#define SO_HR_C1          (2.0468f)	/*Using the 8bit configuration*/
-#define SO_HR_C2          (0.5872f)	/*Using the 12bit configuration*/
-#define SO_HR_C3          (4.0845E-4) 
+#define SHT_SO_HR_C1          (2.0468f)	   /*Using the 8bit configuration*/
+#define SHT_SO_HR_C2          (0.5872f)	   /*Using the 8bit configuration*/
+#define SHT_SO_HR_C3          (4.0845E-4)  /*Using the 8bit configuration*/
+#define SHT_SO_HR_T1          (0.01f)      /*Using the 8bit configuration*/
+#define SHT_SO_HR_T2          (0.00128f)   /*Using the 8bit configuration*/
+
+/*Dew Point*/
+#define SHT_DP_TN_ABV_WATER             (243.12f) /*Temperature range 0 - 50 °C*/
+#define SHT_DP_M_ABV_WATER              (17.62f)  /*Temperature range 0 - 50 °C*/
+#define SHT_DP_TN_ABV_ICE               (272.62f) /*Temperature range -40 - 0 °C*/
+#define SHT_DP_M_ABV_ICE                (22.46f)  /*Temperature range -40 - 0 °C*/
 
 /*Status register Bits*/
 #define SHT_STS_HTR_ON 	(0x1u << 2) /*Set heater ON*/
@@ -59,13 +67,13 @@
 /********************************************************************************
 *                               Function Declarations
 ********************************************************************************/
-SHT_InitState SHT_Init (void);
+void SHT_Init (void);
 Std_ReturnType SHT_CalculateDP (void);
-Std_ReturnType SHT_ReadTemperatureRaw (void);
+Std_ReturnType SHT_ObtainTemp (void);
 Std_ReturnType SHT_ObtainRH (void);
 
 /*Stubbs*/
-SHT_TaskStateType SHT_GetTemperatureRaw(uint16_t *Data );
-SHT_TaskStateType SHT_GetHumidityRaw(uint16_t *Data);
+SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *Data );
+SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *Data);
 #endif /* SHT_H */
 
