@@ -5,6 +5,9 @@
 #include "board.h"
 #include "app_scheduler.h"
 #include "Tasks.h"    
+#include "MemAlloc.h"
+#include "mcan.h"
+#include "canif.h"
 #include "fpu.h"   
 #include <stdbool.h>
 #include <stdio.h>
@@ -63,17 +66,20 @@ extern int main( void )
 
 	/* Enable I and D cache */
 	//SCB_EnableICache();
-  //SCB_EnableDCache();
+    //SCB_EnableDCache();
     /* Enable Floating Point Unit */
     vfnFpu_enable();
 	
 	printf( "Configure LED PIOs.\n\r" ) ;
 	_ConfigureLeds() ;
-  _ConfigureComPins() ;
+  	_ConfigureComPins() ;
 	
-  vfnTsk_Init();
-  SensEnv_Init();
+    vfnTsk_Init();
+    SensEnv_Init();
+    MemAllocInit();
+    printf( "\n\r-- Memory Allocation Initialized!!! --\n\r" ) ;
   
+    CanIf_Init(1u, CanMsgObj);  /* Initializate the CAN hardware */
   	/* Initialize Task Scheduler */
 	vfnScheduler_Init(&Tasks[0]);
 	/* Start execution of task scheduler */

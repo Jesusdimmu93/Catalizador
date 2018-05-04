@@ -834,17 +834,19 @@ void MCAN_IEnableMessageStoredToRxDedBuffer( const MCan_ConfigType * mcanConfig,
 uint8_t  * MCAN_ConfigTxDedBuffer( const MCan_ConfigType * mcanConfig, 
 		uint8_t buffer, uint32_t id, MCan_IdType idType, MCan_DlcType dlc )
 {
-	 Mcan * mcan = mcanConfig->pMCan;
-	 uint32_t * pThisTxBuf = 0;
+  Mcan * mcan = mcanConfig->pMCan;
+  uint32_t * pThisTxBuf = 0;
 	 
-	 if ( buffer < mcanConfig->nmbrTxDedBufElmts ) {
-		pThisTxBuf = mcanConfig->msgRam.pTxDedBuf + (buffer * 
-			(mcanConfig->txBufElmtSize & ELMT_SIZE_MASK));
+  if ( buffer < mcanConfig->nmbrTxDedBufElmts )
+  {
+	  pThisTxBuf = mcanConfig->msgRam.pTxDedBuf + (buffer * 
+			      (mcanConfig->txBufElmtSize & ELMT_SIZE_MASK));
 		if ( idType == CAN_STD_ID ) 
-			*pThisTxBuf++ = (( id << 18 ) & ( CAN_11_BIT_ID_MASK << 18 ));
-	   else 
+	    *pThisTxBuf++ = (( id << 18 ) & ( CAN_11_BIT_ID_MASK << 18 ));
+	  else 
 			*pThisTxBuf++ = BUFFER_XTD_MASK | ( id & CAN_29_BIT_ID_MASK );
-		*pThisTxBuf++ = (uint32_t) dlc << 16;
+		
+    *pThisTxBuf++ = (uint32_t) dlc << 16;
 		/* enable transmit from buffer to set TC interrupt bit in IR, but 
 		interrupt will not happen unless TC interrupt is enabled*/
 		mcan->MCAN_TXBTIE = ( 1 << buffer) ;

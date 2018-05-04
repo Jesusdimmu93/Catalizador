@@ -27,34 +27,39 @@
 /* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                           */
 /* ---------------------------------------------------------------------------- */
 
-INPUT (D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\dbg_console.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\board_lowlevel.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\board_memories.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\exceptions.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pio.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\mpu.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pmc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\uart.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\wdt.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pio_it.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\supc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\tc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdma_hardware_interface.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdmac.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdmad.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\fpu.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\twihs.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\syscalls.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\system_sam.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\timetick.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\app_scheduler.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\Tasks.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\sysclk.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\led.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\SHT.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\main.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\SensingEnvironment.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\startup_sam.o)
+INPUT (D:\ITESO_GIT_Cat\workspace\Debug\dbg_console.o 
+D:\ITESO_GIT_Cat\workspace\Debug\board_lowlevel.o 
+D:\ITESO_GIT_Cat\workspace\Debug\board_memories.o 
+D:\ITESO_GIT_Cat\workspace\Debug\MemAlloc.o 
+D:\ITESO_GIT_Cat\workspace\Debug\exceptions.o 
+D:\ITESO_GIT_Cat\workspace\Debug\pio.o 
+D:\ITESO_GIT_Cat\workspace\Debug\mpu.o 
+D:\ITESO_GIT_Cat\workspace\Debug\pmc.o 
+D:\ITESO_GIT_Cat\workspace\Debug\uart.o 
+D:\ITESO_GIT_Cat\workspace\Debug\wdt.o 
+D:\ITESO_GIT_Cat\workspace\Debug\pio_it.o 
+D:\ITESO_GIT_Cat\workspace\Debug\supc.o 
+D:\ITESO_GIT_Cat\workspace\Debug\tc.o 
+D:\ITESO_GIT_Cat\workspace\Debug\xdma_hardware_interface.o 
+D:\ITESO_GIT_Cat\workspace\Debug\xdmac.o 
+D:\ITESO_GIT_Cat\workspace\Debug\xdmad.o 
+D:\ITESO_GIT_Cat\workspace\Debug\fpu.o 
+D:\ITESO_GIT_Cat\workspace\Debug\twihs.o 
+D:\ITESO_GIT_Cat\workspace\Debug\mcan.o 
+D:\ITESO_GIT_Cat\workspace\Debug\syscalls.o 
+D:\ITESO_GIT_Cat\workspace\Debug\system_sam.o 
+D:\ITESO_GIT_Cat\workspace\Debug\timetick.o 
+D:\ITESO_GIT_Cat\workspace\Debug\app_scheduler.o 
+D:\ITESO_GIT_Cat\workspace\Debug\Tasks.o 
+D:\ITESO_GIT_Cat\workspace\Debug\sysclk.o 
+D:\ITESO_GIT_Cat\workspace\Debug\CanNm.o 
+D:\ITESO_GIT_Cat\workspace\Debug\led.o 
+D:\ITESO_GIT_Cat\workspace\Debug\SHT.o 
+D:\ITESO_GIT_Cat\workspace\Debug\CanIf.o 
+D:\ITESO_GIT_Cat\workspace\Debug\CanIf_Cfg.o 
+D:\ITESO_GIT_Cat\workspace\Debug\main.o 
+D:\ITESO_GIT_Cat\workspace\Debug\SensingEnvironment.o 
+D:\ITESO_GIT_Cat\workspace\Debug\startup_sam.o)
 
 /*------------------------------------------------------------------------------
  *      Linker script for running in internal FLASH on the ATSAMV71Q21

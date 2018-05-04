@@ -68,7 +68,7 @@
 #define MCAN_PROG_CLK_FREQ_HZ \
 		( (float) 150000000 / (float) MCAN_PROG_CLK_PRESCALER )
 
-#define MCAN0_BIT_RATE_BPS            500000
+#define MCAN0_BIT_RATE_BPS            100000
 #define MCAN0_PROP_SEG                2
 #define MCAN0_PHASE_SEG1              11
 #define MCAN0_PHASE_SEG2              11
@@ -93,7 +93,7 @@
 #define MCAN0_RX_BUF_ELMT_SZ          8  /* 8, 12, 16, 20, 24, 32, 48, 64 bytes */
 #define MCAN0_TX_BUF_ELMT_SZ          8  /* 8, 12, 16, 20, 24, 32, 48, 64 bytes */
 
-#define MCAN1_BIT_RATE_BPS            500000
+#define MCAN1_BIT_RATE_BPS            100000
 #define MCAN1_PROP_SEG                2
 #define MCAN1_PHASE_SEG1              11
 #define MCAN1_PHASE_SEG2              11

@@ -7,6 +7,7 @@
 
 #include "Tasks.h"
 #include "led.h"
+#include "CanNm.h"
 
 uint8_t u8100ms_Ctr=0;
 uint8_t u8100ms_Ctr2=0;
@@ -52,7 +53,7 @@ void vfnTsk_50ms(void)
 
 void vfnTsk_100ms(void)
 {
-  			
+	CanNm_Tx();
 	u8100ms_Ctr++;
     u8100ms_Ctr2++;
 
