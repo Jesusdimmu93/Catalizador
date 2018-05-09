@@ -17,7 +17,7 @@
 #include "SensingEnvironment.h"
 #include "SHT_Types.h"
 #include "SHT.h"
-//#include "Can.h"
+#include "CanNm.h"
 //#include "SD_Mem.h"
 
 
@@ -34,6 +34,13 @@ typedef enum
 	SM_SENSENV_SPREAD_RESULT
 
 } SM_SensEnv_Type;
+
+enum
+{
+  CatalystDP = 0,
+  CatalystTemp,
+  CatalystRH
+}CanSignal;
 
  /*******************************************************************************
  *                               Global Variable Definitions
@@ -155,11 +162,13 @@ Std_ReturnType Send_Results (void)
 	Data[1] = (uint8_t)SHTData.RH;
 	Data[2] = (uint8_t)SHTData.DwPoint;
 
-	/*if(Can_SetSignal(CatalystDP, Data[2]) || Can_SetSignal(CatalystTemp, Data[0]) || Can_SetSignal(CatalystRH, Data[1]))
+	if((Can_SetSignal(CatalystDP,   Data[2]))
+  || (Can_SetSignal(CatalystTemp, Data[0])) 
+  || (Can_SetSignal(CatalystRH,   Data[1])))
 	{
 		status = E_NOT_OK;
 	}
-
+  /*
 	if(SD_Store(Data, sizeof(Data)))
 	{
 		status = E_NOT_OK;
