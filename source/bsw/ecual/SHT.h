@@ -67,13 +67,10 @@
 /********************************************************************************
 *                               Function Declarations
 ********************************************************************************/
-void SHT_Init (void);
-Std_ReturnType SHT_CalculateDP (void);
-Std_ReturnType SHT_ObtainTemp (void);
-Std_ReturnType SHT_ObtainRH (void);
+extern void SHT_Init (void);
+extern Std_ReturnType SHT_CalculateDP (void);
+extern Std_ReturnType SHT_ObtainTemp (void);
+extern Std_ReturnType SHT_ObtainRH (void);
 
-/*Stubbs*/
-SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *Data );
-SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *Data);
 #endif /* SHT_H */
 

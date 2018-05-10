@@ -54,7 +54,10 @@ static const Pin pinsSHTs[] = {PIN_TWI_TWD0, PIN_TWI_TWCK0};
   uint16_t ReadTemperature();
   uint8_t  SwapData(uint8_t data);
   
-
+static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData );
+static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData);
+static float log_n(float x);
+static float power( float dwX, uint32_t dwY );
 /*******************************************************************************
  *                               Global Variable Definitions
  ********************************************************************************/
@@ -181,21 +184,69 @@ void PIOA_Handler()
     */             
   NVIC_EnableIRQ( PIOA_IRQn ) ; 
 }
+
+/*****************************************************************************
+ *
+ * Function:        log_n
+ *
+ * Description:     Returns the natural logarithm of val
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
+static float log_n(float val)
+{
+    uint8_t n;
+    float x, logNat; 
+    /*val = (1 + x)*/
+    x = (val - 1.0);
+    logNat = 0.0;
+    if(val > 0 && val <= 1)
+    {
+        for(n = 0; n < 17; n++)
+        {
+            logNat += (power((-1),n) * (power(x,(n+1)))/(n+1));
+        } 
+    }
+    return logNat;
+}
+
+ /*****************************************************************************
+ *
+ * Function:        power
+ *
+ * Description:     Returns the value of dwX powered to the exponential dwY
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
+static float power( float dwX, uint32_t dwY )
+{
+    float dwResult = 1 ;
+
+    while ( dwY > 0 ) {
+        dwResult *= dwX ;
+        dwY-- ;
+    }
+    return dwResult ;
+}
 /********************************************************************************
  *                               Global and Static Function Definitions
  ********************************************************************************/
 
  /*****************************************************************************
  *
- * Function:        
+ * Function:        SHT_Init
  *
- * Description:     
+ * Description:     Initialize the sensor controller
  *
  * Caveats:
  *   None
  *
  *****************************************************************************/
-void SHT_Init (void)
+ void SHT_Init (void)
 {
 	/*Initializing Variables*/
 	SHTData.RH = 0.0;
@@ -208,6 +259,16 @@ void SHT_Init (void)
   	NVIC_EnableIRQ( PIOA_IRQn ) ;  
 }
 
+ /*****************************************************************************
+ *
+ * Function:        SHT_ObtainTemp
+ *
+ * Description:     This function calculates the Temperature obtained from the sensor
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
 Std_ReturnType SHT_ObtainTemp (void)
 {
 	uint16_t SO_T;
@@ -225,6 +286,16 @@ Std_ReturnType SHT_ObtainTemp (void)
 	return status;
 }
 
+ /*****************************************************************************
+ *
+ * Function:        SHT_ObtainRH
+ *
+ * Description:     This function calculates the Relation Humidity from the sensor
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
 Std_ReturnType SHT_ObtainRH (void)
 {
 	uint16_t SO_RH;
@@ -256,17 +327,76 @@ Std_ReturnType SHT_ObtainRH (void)
 	return status;
 }
 
+ /*****************************************************************************
+ *
+ * Function:        SHT_CalculateDP
+ *
+ * Description:     This function returns the calculated dew point from the sensor
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
 Std_ReturnType SHT_CalculateDP (void)
 {
-  return 0;
+  float Tn, m, partial1;
+  float  Ln_RH;
+  int32_t number, result;
+  char ln_result[50];
+  /*For dew point (Td) calculations there are various formulas                               *
+  * to be applied, most of them quite complicated. For the                                   *
+  * temperature range of -40 – 50°C the following                                            *
+  * approximation provides good accuracy with parameters given by the                        *
+  * datasheet.                                                                               *
+  * Td(RH,T) = Tn * (Ln(RH/100%) + (m * T)/(Tn + T) / (m - Ln(RH/100%) - (m * T)/(Tn + T))) */
+
+  if(SHTData.Temp >= 0) /*Above water*/
+  {
+    Tn = SHT_DP_TN_ABV_WATER;
+    m = SHT_DP_M_ABV_WATER;
+  }
+  else /*Above ice*/
+  {
+    Tn = SHT_DP_TN_ABV_ICE;
+    m = SHT_DP_M_ABV_ICE;
+  }
+
+  Ln_RH = log_n(SHTData.RH / 100.0);
+  partial1 =(float)((m * SHTData.Temp) / (Tn + SHTData.Temp));
+
+  SHTData.DwPoint = (Tn * ((Ln_RH + partial1) / (m - Ln_RH - partial1)));
+
+  return E_OK;
 }
  
+ /*****************************************************************************
+ *
+ * Function:        GetData
+ *
+ * Description:     Returns the value of the structure Data under the parameter 
+ *                  as reference
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
 void GetData(SHTDataType *Data)
 {
 	Data = &SHTData;
 }
 
-SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
+ /*****************************************************************************
+ *
+ * Function:        SHT_ReadTemperatureRaw
+ *
+ * Description:     This function make a reading of the raw temperature over 
+ *                  the sensor
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
+static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
 {  
   
 	SHT_TaskStateType status = SHT_TASK_OK;
@@ -285,7 +415,18 @@ SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
   return  status;
 }
 
-SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)
+ /*****************************************************************************
+ *
+ * Function:        SHT_ReadHumidityRaw
+ *
+ * Description:     This function make a reading of the raw humidity over 
+ *                  the sensor
+ *
+ * Caveats:
+ *   None
+ *
+ *****************************************************************************/
+static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)
 {
 	SHT_TaskStateType status = SHT_TASK_OK;
   ReadHumidity();
@@ -309,7 +450,8 @@ void TransmitStart()
   PIN_Set(SCK);     s_delay_2_us();
 }
 
-uint16_t ReadValueFn(){ 
+uint16_t ReadValueFn()
+{ 
  uint8_t i, ByteHigh=0, ByteLow=0,SwpHigh=0,SwpLow=0; 
  uint16_t Lx=0,ActualValue=0; 
 
@@ -493,3 +635,4 @@ void RST_Connection(){
   } 
   TransmitStart(); 
 } 
+

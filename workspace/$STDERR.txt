@@ -1,4 +1,0 @@
-D:\ITESO_Git_Temp\source\appl\main.c:8:22: fatal error: MemAlloc.h: No such file or directory
- #include "MemAlloc.h"
-                      ^
-compilation terminated.
