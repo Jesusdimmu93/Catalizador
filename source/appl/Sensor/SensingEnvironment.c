@@ -156,15 +156,15 @@ Std_ReturnType Send_Results (void)
 {
 	Std_ReturnType status = E_OK;
 	SHTDataType SHTData;
-	uint8_t Data[3];
+	uint8_t volatile Data[3];
 	GetData(SHTData);
 	Data[0] = (uint8_t)SHTData.Temp;
 	Data[1] = (uint8_t)SHTData.RH;
 	Data[2] = (uint8_t)SHTData.DwPoint;
 
-	if((Can_SetSignal(CatalystDP,   Data[2]))
-  || (Can_SetSignal(CatalystTemp, Data[0])) 
-  || (Can_SetSignal(CatalystRH,   Data[1])))
+	if(Can_SetSignal(CatalystDP,   Data[0])
+  || Can_SetSignal(CatalystTemp, Data[1])
+  || Can_SetSignal(CatalystRH,   Data[2]))
 	{
 		status = E_NOT_OK;
 	}
