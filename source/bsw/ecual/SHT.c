@@ -20,7 +20,7 @@
 #include "pmc.h"
 #include "sysclk.h"
 
-#define InterruptMode
+//#define InterruptMode
  /*******************************************************************************
  *                               Macro Definitions
  ********************************************************************************/
@@ -280,8 +280,8 @@ Std_ReturnType SHT_ObtainTemp (void)
 		* datasheet the formula is T = d1 + (d2 * SOt), where d1 and d2 are  *
 		* coefficients and SOt the digital readout                          */
 		SHTData.Temp = (SHT_SO_TEMP_D1 + (SHT_SO_TEMP_D2 * SO_T));
-
-		status = E_OK;
+    printf("%f\n\r",SHTData.Temp );
+    status = E_OK;
 	}
 	return status;
 }
@@ -316,12 +316,13 @@ Std_ReturnType SHT_ObtainRH (void)
 		* compensation are given by the datasheet:                           *
 		*          RH = (T[°C] -25) * (t1 + (t2 * SO_RH)) + RH_Linear       */
 
-		RH_Linear = (SHT_SO_HR_C1 + (SHT_SO_HR_C2 + SO_RH) + 
-		            (SHT_SO_HR_C3 * SO_RH * SO_RH));
+		
+    RH_Linear = (-2.0468 + (SHT_SO_HR_C2 * SO_RH) + 
+		            ((-0.0000015955) * SO_RH * SO_RH));
 
 		SHTData.RH = ((SHTData.Temp - 25u) * (SHT_SO_HR_T1 + 
 		             (SHT_SO_HR_T2 * SO_RH)) + RH_Linear);
-
+    printf("%f\n\r",SHTData.RH );
 		status = E_OK;
 	}
 	return status;
@@ -365,7 +366,7 @@ Std_ReturnType SHT_CalculateDP (void)
   partial1 =(float)((m * SHTData.Temp) / (Tn + SHTData.Temp));
 
   SHTData.DwPoint = (Tn * ((Ln_RH + partial1) / (m - Ln_RH - partial1)));
-
+    printf("%f\n\r",SHTData.DwPoint);
   return E_OK;
 }
  
@@ -398,11 +399,16 @@ void GetData(SHTDataType *Data)
  *****************************************************************************/
 static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
 {  
-  
-	SHT_TaskStateType status = SHT_TASK_OK;
+  uint16_t Data=0;
+	SHT_TaskStateType status = SHT_TASK_NOT_OK;
   if(0u==SwitchInterrupt)
   {
-    ReadTemperature();
+    Data=ReadTemperature();
+    if((Data&0x8000)==0x8000)
+    {
+       *pData=Data-0x8000;
+       status = SHT_TASK_OK;
+    }
     SwitchInterrupt++;
   }
   else
@@ -427,10 +433,27 @@ static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)
  *
  *****************************************************************************/
 static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)
-{
-	SHT_TaskStateType status = SHT_TASK_OK;
-  ReadHumidity();
-	return  status;
+{                 
+  uint16_t Data=0;
+	SHT_TaskStateType status = SHT_TASK_NOT_OK;
+  if(0u==SwitchInterrupt)
+  {
+    Data=ReadHumidity();
+    if((Data&0x8000)==0x8000)
+    {
+       *pData=Data-0x8000;
+       status = SHT_TASK_OK;
+    }
+    SwitchInterrupt++;
+  }
+  else
+  { 
+    #ifdef InterruptMode
+    RequestEnabled = MeasureTemp; //RequestEnabled = MeasureHumi;
+    #endif
+    SwitchInterrupt=0u; 
+  }   
+  return  status;
 }
 
 void s_delay_2_us()
@@ -491,7 +514,7 @@ uint16_t ReadValueFn()
   s_delay_2_us();
   ByteHigh=SwapData(ByteHigh);
   ByteLow=SwapData(ByteLow);
-  Lx=((uint16_t)ByteHigh<<8)|ByteLow; 
+  Lx=(((uint16_t)ByteHigh<<8)|ByteLow)<<1; 
   return(Lx); 
 } 
 
@@ -591,18 +614,27 @@ uint16_t ReadHumidity()
 uint16_t ReadTemperature()
 { 
   uint8_t AcknowPINge; 
+  uint16_t DummyCounter=0;
   long Lx=0u,Value; 
   TransmitStart(); 
   SendCommand(MeasureTemp); 
   while(0u==AckConfirmVar);/*wait for acknolwledge*/ 
+  //while(0u==AckConfirmVar||DummyCounter<0xffff)
+  //{
+  //  DummyCounter++;
+  //}/*wait for acknolwledge*/ 
   AckConfirmVar=0u;
   s_delay_2_us();
   PIN_MakeInputSDA();
+  //while(0u==AckConfirmVar||DummyCounter<0xffff)
+  //{
+  //  DummyCounter++;
+  //}/*wait for acknolwledge*/ 
   while(0u==AckConfirmVar);/*wait for acknolwledge*/ 
   AckConfirmVar=0u;
-  Lx=ReadValueFn();                        
+  Lx=ReadValueFn();              
   //Value=CalcTempValues(Lx); 
-  return(Value); 
+  return(Lx+0x8000); 
 } 
   
 uint16_t ReadHumidity(){ 
@@ -618,7 +650,7 @@ uint16_t ReadHumidity(){
   AckConfirmVar=0u;
   Lx=ReadValueFn();                        
   //Value=CalcTempValues(Lx); 
-  return(Value); 
+  return(Lx+0x8000); 
 } 
 #endif
 ///////////////////////////////////////////////////////// 

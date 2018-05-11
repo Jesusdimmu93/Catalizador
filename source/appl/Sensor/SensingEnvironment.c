@@ -161,7 +161,8 @@ Std_ReturnType Send_Results (void)
 	Data[0] = (uint8_t)SHTData.Temp;
 	Data[1] = (uint8_t)SHTData.RH;
 	Data[2] = (uint8_t)SHTData.DwPoint;
-
+  printf("%x  %x  %x\n\r",Data[0],Data[1],Data[2]);
+  printf("%f  %f  %f\n\r",SHTData.Temp,SHTData.RH,SHTData.DwPoint);
 	if(Can_SetSignal(CatalystDP,   Data[0])
   || Can_SetSignal(CatalystTemp, Data[1])
   || Can_SetSignal(CatalystRH,   Data[2]))

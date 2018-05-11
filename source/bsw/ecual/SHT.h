@@ -19,15 +19,15 @@
 ********************************************************************************/
 /*Coefficients given by table 9 from datasheet.*/
 /*Temperature*/
-#define SHT_SO_TEMP_D1      (-40.1f)		/*Using a Vdd = 5V*/
-#define SHT_SO_TEMP_D2      (0.04f) 		/*Using the 12bit configuration*/
+#define SHT_SO_TEMP_D1      (-39.7f)		/*Using a Vdd = 5V*/
+#define SHT_SO_TEMP_D2      (0.01f) 		/*Using the 12bit configuration*/
 
 /*Relative Humidity*/
-#define SHT_SO_HR_C1          (2.0468f)	   /*Using the 8bit configuration*/
-#define SHT_SO_HR_C2          (0.5872f)	   /*Using the 8bit configuration*/
-#define SHT_SO_HR_C3          (4.0845E-4)  /*Using the 8bit configuration*/
+#define SHT_SO_HR_C1          (-2.0468f)	   /*Using the 8bit configuration*/
+#define SHT_SO_HR_C2          (0.0367f)	   /*Using the 8bit configuration*/
+#define SHT_SO_HR_C3          (-1.5955E-6)  /*Using the 8bit configuration*/
 #define SHT_SO_HR_T1          (0.01f)      /*Using the 8bit configuration*/
-#define SHT_SO_HR_T2          (0.00128f)   /*Using the 8bit configuration*/
+#define SHT_SO_HR_T2          (0.00008f)   /*Using the 8bit configuration*/
 
 /*Dew Point*/
 #define SHT_DP_TN_ABV_WATER             (243.12f) /*Temperature range 0 - 50 °C*/
