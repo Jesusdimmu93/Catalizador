@@ -1,8 +1,7 @@
+INITIALIZING	Emulator: CMSIS-DAP   Debugger: On-chip
 CONVERTING	D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\BaseProject.elf
 LOADING	D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\BaseProject.elf
 ANALYZING
 ANALYZING
 EMULATION	POD: Cortex (JTAG,SWD)   CPU: Cortex-M7
 DEBUG	PROTOCOL: SWD; RESET: SoC
-LOADING 	48532 bytes
-PROGRAMMING	Atmel ATSAMV7 (2048 kB) (3 sectors)
