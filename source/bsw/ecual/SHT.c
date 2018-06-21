@@ -58,6 +58,11 @@ static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData );
 static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData);
 static float log_n(float x);
 static float power( float dwX, uint32_t dwY );
+extern void PIN_MakeOutputSDA( );
+extern void PIN_MakeInputSDA( );
+extern void PIN_Clear( uint32_t dwCom );
+extern void PIOHandlesFunction(void);
+
 /*******************************************************************************
  *                               Global Variable Definitions
  ********************************************************************************/
@@ -80,83 +85,14 @@ uint32_t ComPins_Configure( uint32_t dwCom )
 	return ( PIO_Configure( &pinsSHTs[dwCom], 1 ) );
 }
 
-void PIN_Set( uint32_t dwCom )
-{   
-  if(dwCom)
-  {
-    PIOA->PIO_WPMR &= 0x00;
-    PIOA->PIO_PER   = 0x10;
-    PIOA->PIO_OER  |= 0x10;
-    PIOA->PIO_CODR |= 0x10; 
-    PIOA->PIO_OWER |= 0x10;
-  }
-  else
-  {
-    PIOA->PIO_WPMR &= 0x00;
-    PIOA->PIO_PER   = 0x08;
-    PIOA->PIO_OER  |= 0x08;
-    PIOA->PIO_CODR |= 0x08; 
-    PIOA->PIO_OWER |= 0x08;
-  } 
-}
 
 
-void PIN_Clear( uint32_t dwCom )
-{
-  if(dwCom)
-  {
-    PIOA->PIO_WPMR &= 0x00;
-    PIOA->PIO_PER   = 0x10;
-    PIOA->PIO_OER  |= 0x10;
-    PIOA->PIO_SODR |= 0x10; 
-    PIOA->PIO_OWER |= 0x10;
-  }
-  else
-  {
-    PIOA->PIO_WPMR &= 0x00;
-    PIOA->PIO_PER   = 0x08;
-    PIOA->PIO_OER  |= 0x08;
-    PIOA->PIO_SODR |= 0x08; 
-    PIOA->PIO_OWER |= 0x08;
-  }
-}
-
-void PIN_MakeInputSDA( )
-{   
-    PIOA->PIO_WPMR&= 0x00;
-    PIOA->PIO_OWDR|= 0x08;
-    PIOA->PIO_ODR |= 0x08;
-    PIOA->PIO_IDR |= ~0x08;     
-    PIOA->PIO_ISR ;
-    PIOA->PIO_IER |= 0x08;      
-    PIOA->PIO_ESR |= 0x08;      
-                                
-    PIOA->PIO_FELLSR  |= 0x08;  
-    PIOA->PIO_IFER    |= 0x08;
-    PIOA->PIO_IFSCER  |= 0x04;   
-}
-
-void PIN_MakeOutputSDA( )
-{        
-    PIOA->PIO_WPMR &= 0; 
-    //enable IT
-    PIOA->PIO_IDR  |= 0x08;     
-    //PIOA->PIO_PDR = 0x08;
-    //PIOA->PIO_PER = 0x08;
-    PIOA->PIO_IFDR |= 0x08; 
-    //PIOA->PIO_DIFSR |= 0x08;  
-    //PIOA->PIO_SCDR |= 0x04
-    PIOA->PIO_OER  |= 0x08;
-    PIOA->PIO_OWER |= 0x08;
-    
-}           
 
 void PIOA_Handler()
 {  
   NVIC_DisableIRQ( PIOA_IRQn ) ; 
   AckConfirmVar=1;
-  PIOA->PIO_IDR = 0x18; 
-  LED_Toggle(1);
+  PIOHandlesFunction();
 #ifdef InterruptMode 
  
   if(1u==InterruptVar)
@@ -458,6 +394,7 @@ static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)
 
 void s_delay_2_us()
 {
+  asm("NOP");
   asm("NOP");
 }
 

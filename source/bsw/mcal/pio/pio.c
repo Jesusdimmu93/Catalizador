@@ -466,3 +466,77 @@ void PIO_SetPinType( Pin * pin, uint8_t pinType)
 	pin->type = pinType;
 }
 
+void PIN_Set( uint32_t dwCom )
+{   
+  if(dwCom)
+  {
+    PIOA->PIO_WPMR &= 0x00;
+    PIOA->PIO_PER   = 0x10;
+    PIOA->PIO_OER  |= 0x10;
+    PIOA->PIO_CODR |= 0x10; 
+    PIOA->PIO_OWER |= 0x10;
+  }
+  else
+  {
+    PIOA->PIO_WPMR &= 0x00;
+    PIOA->PIO_PER   = 0x08;
+    PIOA->PIO_OER  |= 0x08;
+    PIOA->PIO_CODR |= 0x08; 
+    PIOA->PIO_OWER |= 0x08;
+  } 
+}
+
+void PIN_Clear( uint32_t dwCom )
+{
+  if(dwCom)
+  {
+    PIOA->PIO_WPMR &= 0x00;
+    PIOA->PIO_PER   = 0x10;
+    PIOA->PIO_OER  |= 0x10;
+    PIOA->PIO_SODR |= 0x10; 
+    PIOA->PIO_OWER |= 0x10;
+  }
+  else
+  {
+    PIOA->PIO_WPMR &= 0x00;
+    PIOA->PIO_PER   = 0x08;
+    PIOA->PIO_OER  |= 0x08;
+    PIOA->PIO_SODR |= 0x08; 
+    PIOA->PIO_OWER |= 0x08;
+  }
+}
+
+void PIOHandlesFunction(void)
+{
+  PIOA->PIO_IDR = 0x18; 
+}
+
+void PIN_MakeInputSDA( )
+{   
+    PIOA->PIO_WPMR&= 0x00;
+    PIOA->PIO_OWDR|= 0x08;
+    PIOA->PIO_ODR |= 0x08;
+    PIOA->PIO_IDR |= ~0x08;     
+    PIOA->PIO_ISR ;
+    PIOA->PIO_IER |= 0x08;      
+    PIOA->PIO_ESR |= 0x08;      
+                                
+    PIOA->PIO_FELLSR  |= 0x08;  
+    PIOA->PIO_IFER    |= 0x08;
+    PIOA->PIO_IFSCER  |= 0x04;   
+}
+
+void PIN_MakeOutputSDA( )
+{        
+    PIOA->PIO_WPMR &= 0; 
+    //enable IT
+    PIOA->PIO_IDR  |= 0x08;     
+    //PIOA->PIO_PDR = 0x08;
+    //PIOA->PIO_PER = 0x08;
+    PIOA->PIO_IFDR |= 0x08; 
+    //PIOA->PIO_DIFSR |= 0x08;  
+    //PIOA->PIO_SCDR |= 0x04
+    PIOA->PIO_OER  |= 0x08;
+    PIOA->PIO_OWER |= 0x08;
+    
+}           
