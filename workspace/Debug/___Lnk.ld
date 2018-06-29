@@ -27,39 +27,40 @@
 /* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                           */
 /* ---------------------------------------------------------------------------- */
 
-INPUT (D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\dbg_console.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\board_lowlevel.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\board_memories.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\MemAlloc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\exceptions.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pio.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\mpu.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pmc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\uart.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\wdt.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\pio_it.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\supc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\tc.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdma_hardware_interface.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdmac.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\xdmad.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\fpu.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\twihs.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\mcan.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\syscalls.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\system_sam.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\timetick.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\app_scheduler.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\Tasks.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\sysclk.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\CanNm.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\led.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\SHT.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\CanIf.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\CanIf_Cfg.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\main.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\SensingEnvironment.o 
-D:\ITESO\Tesis_Control_Catalizador\ProjectBaseCode\workspace\Debug\startup_sam.o)
+INPUT (C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\dbg_console.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\board_lowlevel.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\board_memories.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\MemAlloc.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\xdma_hardware_interface.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\xdmac.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\xdmad.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\fpu.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\mcan.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\exceptions.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\mpu.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\pio_it.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\pio.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\pmc.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\supc.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\tc.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\twihs.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\wdt.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\uart.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\syscalls.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\system_sam.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\timetick.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\app_scheduler.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\Tasks.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\sysclk.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\CanNm.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\CanIf.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\CanIf_Cfg.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\led.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\serial_ctrl.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\SHT.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\main.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\SensingEnvironment.o 
+C:\Users\uid42696\Desktop\Iteso_Projects\Catalist_Project_Git\Catalizador\workspace\Debug\startup_sam.o)
 
 /*------------------------------------------------------------------------------
  *      Linker script for running in internal FLASH on the ATSAMV71Q21

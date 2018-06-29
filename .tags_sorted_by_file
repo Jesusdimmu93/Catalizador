@@ -64,17 +64,12 @@ ACK	source\bsw\ecual\SHT.c	31;"	d	file:
 AckConfirmVar	source\bsw\ecual\SHT.c	/^  uint8_t     AckConfirmVar=0u;$/;"	v
 ComPins_Configure	source\bsw\ecual\SHT.c	/^uint32_t ComPins_Configure( uint32_t dwCom )$/;"	f
 GetData	source\bsw\ecual\SHT.c	/^void GetData(SHTDataType *Data)$/;"	f
-InterruptMode	source\bsw\ecual\SHT.c	23;"	d	file:
 InterruptVar	source\bsw\ecual\SHT.c	/^  uint8_t   InterruptVar=0;$/;"	v
 MEASURE_HUMI	source\bsw\ecual\SHT.c	36;"	d	file:
 MEASURE_TEMP	source\bsw\ecual\SHT.c	35;"	d	file:
 MeasureHumi	source\bsw\ecual\SHT.c	44;"	d	file:
 MeasureTemp	source\bsw\ecual\SHT.c	43;"	d	file:
 MeasuredValues	source\bsw\ecual\SHT.c	/^  uint16_t  MeasuredValues[2];\/\/0 Temp 1 Humidity $/;"	v
-PIN_Clear	source\bsw\ecual\SHT.c	/^void PIN_Clear( uint32_t dwCom )$/;"	f
-PIN_MakeInputSDA	source\bsw\ecual\SHT.c	/^void PIN_MakeInputSDA( )$/;"	f
-PIN_MakeOutputSDA	source\bsw\ecual\SHT.c	/^void PIN_MakeOutputSDA( )$/;"	f
-PIN_Set	source\bsw\ecual\SHT.c	/^void PIN_Set( uint32_t dwCom )$/;"	f
 PIOA_Handler	source\bsw\ecual\SHT.c	/^void PIOA_Handler()$/;"	f
 RESET	source\bsw\ecual\SHT.c	37;"	d	file:
 RST_Connection	source\bsw\ecual\SHT.c	/^void RST_Connection(){ $/;"	f
@@ -82,18 +77,18 @@ RdStatusReg	source\bsw\ecual\SHT.c	46;"	d	file:
 ReadHumidity	source\bsw\ecual\SHT.c	/^uint16_t ReadHumidity()$/;"	f
 ReadHumidity	source\bsw\ecual\SHT.c	/^uint16_t ReadHumidity(){ $/;"	f
 ReadTemperature	source\bsw\ecual\SHT.c	/^uint16_t ReadTemperature()$/;"	f
-ReadValueFn	source\bsw\ecual\SHT.c	/^uint16_t ReadValueFn(){ $/;"	f
+ReadValueFn	source\bsw\ecual\SHT.c	/^uint16_t ReadValueFn()$/;"	f
 RequestEnabled	source\bsw\ecual\SHT.c	/^  uint8_t   RequestEnabled;$/;"	v
 Reset	source\bsw\ecual\SHT.c	42;"	d	file:
 SCK	source\bsw\ecual\SHT.c	39;"	d	file:
 SDA	source\bsw\ecual\SHT.c	38;"	d	file:
 SHTData	source\bsw\ecual\SHT.c	/^  SHTDataType SHTData;$/;"	v
 SHT_CalculateDP	source\bsw\ecual\SHT.c	/^Std_ReturnType SHT_CalculateDP (void)$/;"	f
-SHT_Init	source\bsw\ecual\SHT.c	/^void SHT_Init (void)$/;"	f
+SHT_Init	source\bsw\ecual\SHT.c	/^ void SHT_Init (void)$/;"	f
 SHT_ObtainRH	source\bsw\ecual\SHT.c	/^Std_ReturnType SHT_ObtainRH (void)$/;"	f
 SHT_ObtainTemp	source\bsw\ecual\SHT.c	/^Std_ReturnType SHT_ObtainTemp (void)$/;"	f
-SHT_ReadHumidityRaw	source\bsw\ecual\SHT.c	/^SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)$/;"	f
-SHT_ReadTemperatureRaw	source\bsw\ecual\SHT.c	/^SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)$/;"	f
+SHT_ReadHumidityRaw	source\bsw\ecual\SHT.c	/^static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)$/;"	f	file:
+SHT_ReadTemperatureRaw	source\bsw\ecual\SHT.c	/^static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)$/;"	f	file:
 STATUS_REG_R	source\bsw\ecual\SHT.c	34;"	d	file:
 STATUS_REG_W	source\bsw\ecual\SHT.c	33;"	d	file:
 SendCommand	source\bsw\ecual\SHT.c	/^void SendCommand(int Command){ $/;"	f
@@ -104,8 +99,10 @@ TimeOut	source\bsw\ecual\SHT.c	/^  uint8_t     TimeOut,err; $/;"	v
 TransmitStart	source\bsw\ecual\SHT.c	/^void TransmitStart()$/;"	f
 WrStatusReg	source\bsw\ecual\SHT.c	45;"	d	file:
 err	source\bsw\ecual\SHT.c	/^  uint8_t     TimeOut,err; $/;"	v
+log_n	source\bsw\ecual\SHT.c	/^static float log_n(float val)$/;"	f	file:
 noACK	source\bsw\ecual\SHT.c	30;"	d	file:
 pinsSHTs	source\bsw\ecual\SHT.c	/^static const Pin pinsSHTs[] = {PIN_TWI_TWD0, PIN_TWI_TWCK0};$/;"	v	file:
+power	source\bsw\ecual\SHT.c	/^static float power( float dwX, uint32_t dwY )$/;"	f	file:
 s_delay_2_us	source\bsw\ecual\SHT.c	/^void s_delay_2_us()$/;"	f
 ACK	source\bsw\ecual\SHT.h	52;"	d
 MEASURE_HUMI	source\bsw\ecual\SHT.h	57;"	d
@@ -583,6 +580,11 @@ USBHSRAM_END_ADDRESS	source\bsw\mcal\mpu\mpu.h	158;"	d
 USBHSRAM_START_ADDRESS	source\bsw\mcal\mpu\mpu.h	157;"	d
 USER_MODE	source\bsw\mcal\mpu\mpu.h	39;"	d
 _MPU_H_	source\bsw\mcal\mpu\mpu.h	31;"	d
+PIN_Clear	source\bsw\mcal\pio\pio.c	/^void PIN_Clear( uint32_t dwCom )$/;"	f
+PIN_MakeInputSDA	source\bsw\mcal\pio\pio.c	/^void PIN_MakeInputSDA( )$/;"	f
+PIN_MakeOutputSDA	source\bsw\mcal\pio\pio.c	/^void PIN_MakeOutputSDA( )$/;"	f
+PIN_Set	source\bsw\mcal\pio\pio.c	/^void PIN_Set( uint32_t dwCom )$/;"	f
+PIOHandlesFunction	source\bsw\mcal\pio\pio.c	/^void PIOHandlesFunction(void)$/;"	f
 PIO_Clear	source\bsw\mcal\pio\pio.c	/^void PIO_Clear(const Pin *pin)$/;"	f
 PIO_Configure	source\bsw\mcal\pio\pio.c	/^uint8_t PIO_Configure( const Pin *list, uint32_t size )$/;"	f
 PIO_DisableWriteProtect	source\bsw\mcal\pio\pio.c	/^void PIO_DisableWriteProtect( const Pin *pin )$/;"	f
@@ -1040,8 +1042,8 @@ xdmaMutex	source\bsw\mcal\xdma\xdmad.h	/^	uint8_t  xdmaMutex;$/;"	m	struct:_Xdma
 CAN_MSG_Counter	source\bsw\services\comm\CanNm.c	/^uint8_t CAN_MSG_Counter = 0;$/;"	v
 CanNm_Tx	source\bsw\services\comm\CanNm.c	/^void CanNm_Tx(void)$/;"	f
 Can_SetSignal	source\bsw\services\comm\CanNm.c	/^uint8_t Can_SetSignal(uint8_t Signal, uint8_t SignalValue)$/;"	f
-CAN_WAIT	source\bsw\services\comm\CanNm.h	7;"	d
-_CAN_NTW_	source\bsw\services\comm\CanNm.h	2;"	d
+CAN_WAIT	source\bsw\services\comm\CanNm.h	8;"	d
+_CAN_NTW_	source\bsw\services\comm\CanNm.h	3;"	d
 IOPORT_DIR_INPUT	source\bsw\services\ioport\ioport.h	/^	IOPORT_DIR_INPUT,  \/*!< IOPORT input direction *\/$/;"	e	enum:ioport_direction
 IOPORT_DIR_OUTPUT	source\bsw\services\ioport\ioport.h	/^	IOPORT_DIR_OUTPUT, \/*!< IOPORT output direction *\/$/;"	e	enum:ioport_direction
 IOPORT_H	source\bsw\services\ioport\ioport.h	48;"	d

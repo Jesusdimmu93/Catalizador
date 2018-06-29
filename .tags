@@ -830,7 +830,7 @@ CAN_MSG_Counter	.\source\bsw\services\comm\CanNm.c	/^uint8_t CAN_MSG_Counter = 0
 CAN_RX	.\source\bsw\ecual\CanIf_Types.h	/^  CAN_RX = 1,$/;"	e	enum:__anon6
 CAN_STD_ID	.\source\bsw\mcal\mcan\mcan.h	/^	CAN_STD_ID = 0,$/;"	e	enum:__anon11
 CAN_TX	.\source\bsw\ecual\CanIf_Types.h	/^  CAN_TX = 0,$/;"	e	enum:__anon6
-CAN_WAIT	.\source\bsw\services\comm\CanNm.h	7;"	d
+CAN_WAIT	.\source\bsw\services\comm\CanNm.h	8;"	d
 CCFG_CAN0	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_matrix.h	/^  __IO uint32_t CCFG_CAN0;                  \/**< \\brief (Matrix Offset: 0x0110) CAN0 Configuration Register *\/$/;"	m	struct:__anon207
 CCFG_CAN0_CAN0DMABA	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_matrix.h	144;"	d
 CCFG_CAN0_CAN0DMABA_Msk	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_matrix.h	143;"	d
@@ -4235,7 +4235,6 @@ IWR	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include
 IWR	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\core_sc300.h	/^  __O  uint32_t IWR;                     \/*!< Offset: 0xEF8 ( \/W)  ITM Integration Write Register            *\/$/;"	m	struct:__anon187
 Icm	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_icm.h	/^} Icm;$/;"	t	typeref:struct:__anon204
 IntFunc	.\source\bsw\mcal\exceptions\exceptions.h	/^typedef void( *IntFunc )( void ) ;$/;"	t
-InterruptMode	.\source\bsw\ecual\SHT.c	23;"	d	file:
 InterruptSource	.\source\bsw\mcal\pio\pio_it.c	/^} InterruptSource ;$/;"	t	typeref:struct:_InterruptSource	file:
 InterruptVar	.\source\bsw\ecual\SHT.c	/^  uint8_t   InterruptVar=0;$/;"	v
 Is_LockFree	.\source\infrastructure\derivative\utils\utility.h	/^__STATIC_INLINE uint8_t Is_LockFree(volatile uint8_t *Lock_Variable)$/;"	f
@@ -6269,7 +6268,7 @@ PINS_UART0	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	253;"	d
 PINS_UART4	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	256;"	d
 PINS_USART1	.\source\infrastructure\bsp\libboard_samv7-ek\source\dbg_console.c	97;"	d	file:
 PINS_VBUS_EN	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	734;"	d
-PIN_Clear	.\source\bsw\ecual\SHT.c	/^void PIN_Clear( uint32_t dwCom )$/;"	f
+PIN_Clear	.\source\bsw\mcal\pio\pio.c	/^void PIN_Clear( uint32_t dwCom )$/;"	f
 PIN_EBI_LCD_CS	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	586;"	d
 PIN_EBI_LCD_DATAH_0	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	579;"	d
 PIN_EBI_LCD_DATAH_1	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	580;"	d
@@ -6293,8 +6292,8 @@ PIN_MCAN0_RXD	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	393;"	d
 PIN_MCAN0_TXD	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	391;"	d
 PIN_MCAN1_RXD	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	398;"	d
 PIN_MCAN1_TXD	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	396;"	d
-PIN_MakeInputSDA	.\source\bsw\ecual\SHT.c	/^void PIN_MakeInputSDA( )$/;"	f
-PIN_MakeOutputSDA	.\source\bsw\ecual\SHT.c	/^void PIN_MakeOutputSDA( )$/;"	f
+PIN_MakeInputSDA	.\source\bsw\mcal\pio\pio.c	/^void PIN_MakeInputSDA( )$/;"	f
+PIN_MakeOutputSDA	.\source\bsw\mcal\pio\pio.c	/^void PIN_MakeOutputSDA( )$/;"	f
 PIN_PCK0	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	320;"	d
 PIN_PCK1	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	322;"	d
 PIN_PCK2	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	324;"	d
@@ -6332,7 +6331,7 @@ PIN_SSC_RK	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	244;"	d
 PIN_SSC_TD	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	236;"	d
 PIN_SSC_TF	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	240;"	d
 PIN_SSC_TK	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	238;"	d
-PIN_Set	.\source\bsw\ecual\SHT.c	/^void PIN_Set( uint32_t dwCom )$/;"	f
+PIN_Set	.\source\bsw\mcal\pio\pio.c	/^void PIN_Set( uint32_t dwCom )$/;"	f
 PIN_TWI_TWCK0	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	338;"	d
 PIN_TWI_TWCK1	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	345;"	d
 PIN_TWI_TWD0	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	336;"	d
@@ -6387,6 +6386,7 @@ PIOE_Handler	.\source\bsw\mcal\pio\pio_it.c	/^extern void PIOE_Handler( void )$/
 PIOE_Handler	.\source\infrastructure\bsp\libboard_samv7-ek\resources\gcc\startup_sam.c	85;"	d	file:
 PIOE_Handler	.\source\infrastructure\toolset\gcc\startup_sam.c	85;"	d	file:
 PIOE_IRQn	.\source\infrastructure\derivative\libchip_samv7\include\samv7\samv71q21.h	/^  PIOE_IRQn            = 17, \/**< 17 SAMV71Q21 Parallel I\/O Controller E (PIOE) *\/$/;"	e	enum:IRQn
+PIOHandlesFunction	.\source\bsw\mcal\pio\pio.c	/^void PIOHandlesFunction(void)$/;"	f
 PIO_ABCDSR	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_pio.h	/^  __IO uint32_t PIO_ABCDSR[2]; \/**< \\brief (Pio Offset: 0x0070) Peripheral Select Register *\/$/;"	m	struct:__anon210
 PIO_ABCDSR_P0	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_pio.h	883;"	d
 PIO_ABCDSR_P1	.\source\infrastructure\derivative\libchip_samv7\include\samv7\component\component_pio.h	884;"	d
@@ -14542,7 +14542,7 @@ RdStatusReg	.\source\bsw\ecual\SHT.c	46;"	d	file:
 ReadHumidity	.\source\bsw\ecual\SHT.c	/^uint16_t ReadHumidity()$/;"	f
 ReadHumidity	.\source\bsw\ecual\SHT.c	/^uint16_t ReadHumidity(){ $/;"	f
 ReadTemperature	.\source\bsw\ecual\SHT.c	/^uint16_t ReadTemperature()$/;"	f
-ReadValueFn	.\source\bsw\ecual\SHT.c	/^uint16_t ReadValueFn(){ $/;"	f
+ReadValueFn	.\source\bsw\ecual\SHT.c	/^uint16_t ReadValueFn()$/;"	f
 RealRH	.\source\appl\Sensor\SensingEnvironment.c	/^uint16_t RealRH;$/;"	v
 RealTemp	.\source\appl\Sensor\SensingEnvironment.c	/^uint16_t RealTemp;$/;"	v
 ReleaseMutex	.\source\infrastructure\derivative\utils\utility.h	49;"	d
@@ -15706,11 +15706,11 @@ SHT_DP_M_ABV_WATER	.\source\bsw\ecual\SHT.h	34;"	d
 SHT_DP_TN_ABV_ICE	.\source\bsw\ecual\SHT.h	35;"	d
 SHT_DP_TN_ABV_WATER	.\source\bsw\ecual\SHT.h	33;"	d
 SHT_H	.\source\bsw\ecual\SHT.h	12;"	d
-SHT_Init	.\source\bsw\ecual\SHT.c	/^void SHT_Init (void)$/;"	f
+SHT_Init	.\source\bsw\ecual\SHT.c	/^ void SHT_Init (void)$/;"	f
 SHT_ObtainRH	.\source\bsw\ecual\SHT.c	/^Std_ReturnType SHT_ObtainRH (void)$/;"	f
 SHT_ObtainTemp	.\source\bsw\ecual\SHT.c	/^Std_ReturnType SHT_ObtainTemp (void)$/;"	f
-SHT_ReadHumidityRaw	.\source\bsw\ecual\SHT.c	/^SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)$/;"	f
-SHT_ReadTemperatureRaw	.\source\bsw\ecual\SHT.c	/^SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)$/;"	f
+SHT_ReadHumidityRaw	.\source\bsw\ecual\SHT.c	/^static SHT_TaskStateType SHT_ReadHumidityRaw(uint16_t *pData)$/;"	f	file:
+SHT_ReadTemperatureRaw	.\source\bsw\ecual\SHT.c	/^static SHT_TaskStateType SHT_ReadTemperatureRaw(uint16_t *pData)$/;"	f	file:
 SHT_SFT_RST	.\source\bsw\ecual\SHT.h	49;"	d
 SHT_SO_HR_C1	.\source\bsw\ecual\SHT.h	26;"	d
 SHT_SO_HR_C2	.\source\bsw\ecual\SHT.h	27;"	d
@@ -20943,7 +20943,7 @@ _BOARD_H_	.\source\infrastructure\bsp\libboard_samv7-ek\board.h	77;"	d
 _CANIF_TYPES_	.\source\bsw\ecual\CanIf_Types.h	2;"	d
 _CAN_CFG_	.\source\bsw\ecual\CanIf_Cfg.h	2;"	d
 _CAN_IF_	.\source\bsw\ecual\CanIf.h	2;"	d
-_CAN_NTW_	.\source\bsw\services\comm\CanNm.h	2;"	d
+_CAN_NTW_	.\source\bsw\services\comm\CanNm.h	3;"	d
 _COMPILER_H_	.\source\infrastructure\derivative\libchip_samv7\compiler.h	32;"	d
 _ConfigureComPins	.\source\appl\main.c	/^static void _ConfigureComPins( void )$/;"	f	file:
 _ConfigureLeds	.\source\appl\main.c	/^static void _ConfigureLeds( void )$/;"	f	file:
@@ -22234,6 +22234,7 @@ lcd_spi_reset_pin	.\source\infrastructure\bsp\libboard_samv7-ek\source\ili9488_s
 length	.\source\bsw\mcal\mcan\mcan.h	/^	uint32_t   length;$/;"	m	struct:MailboxInfoTag
 length	.\source\bsw\mcal\twihs\twihs.h	/^	uint32_t length;$/;"	m	struct:twihs_packet
 link	.\source\infrastructure\bsp\libboard_samv7-ek\source\syscalls.c	/^extern int link( char *old, char *new )$/;"	f
+log_n	.\source\bsw\ecual\SHT.c	/^static float log_n(float val)$/;"	f	file:
 main	.\source\appl\main.c	/^extern int main( void )$/;"	f
 mask	.\source\bsw\mcal\pio\pio.h	/^	uint32_t mask;$/;"	m	struct:_Pin
 master_clk	.\source\bsw\mcal\twihs\twihs.h	/^	uint32_t master_clk;$/;"	m	struct:twihs_options
@@ -22662,6 +22663,7 @@ postShift	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\I
 postShift	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\arm_math.h	/^    uint8_t postShift;       \/**< additional shift, in bits, applied to each output sample. *\/$/;"	m	struct:__anon65
 postShift	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\arm_math.h	/^    uint8_t postShift;    \/**< bit shift applied to coefficients. *\/$/;"	m	struct:__anon77
 postShift	.\source\infrastructure\derivative\libchip_samv7\include\cmsis\CMSIS\Include\arm_math.h	/^    uint8_t postShift;   \/**< bit shift applied to coefficients. *\/$/;"	m	struct:__anon78
+power	.\source\bsw\ecual\SHT.c	/^static float power( float dwX, uint32_t dwY )$/;"	f	file:
 power	.\source\infrastructure\bsp\libboard_samv7-ek\source\math.c	/^extern uint32_t power( uint32_t dwX, uint32_t dwY )$/;"	f
 ptrCanIfMessageConfig	.\source\bsw\ecual\CanIf.c	/^CanIf_MessageConfigType *ptrCanIfMessageConfig;$/;"	v
 pu8SerialCtrl_ReadRxDataPtr	.\source\bsw\ecual\serial_ctrl.c	/^uint8_t  * 		pu8SerialCtrl_ReadRxDataPtr;$/;"	v
